@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Background Colors -->
+    <color name="bg_dark">#0A0B10</color>
+    <color name="header_bg">#0D0F16</color>
+    <color name="sidebar_bg">#0F1120</color>
+    <color name="player_bg">#0D0F18</color>
+    <color name="glass_border">#1AFFFFFF</color>
+
+    <!-- Cards -->
+    <color name="card_bg">#282C3C</color>
+    <color name="card_active">#3300D2FF</color>
+
+    <!-- Accent -->
+    <color name="accent">#00D2FF</color>
+    <color name="accent_dark">#0099CC</color>
+
+    <!-- Text -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#A0A0B0</color>
+
+    <!-- System -->
+    <color name="colorPrimary">#00D2FF</color>
+    <color name="colorPrimaryDark">#0A0B10</color>
+    <color name="colorAccent">#00D2FF</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>

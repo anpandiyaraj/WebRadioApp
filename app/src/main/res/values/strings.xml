@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">JJ WebRadio+</string>
+    <string name="media_playback_attribution_label">Media Playback</string>
+    <string name="app_title_first">JJ WebRadio</string>
+    <string name="app_title_second">+</string>
+</resources>

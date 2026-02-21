@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark">
+
+    <!-- ===== HEADER ===== -->
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:background="@color/header_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="20dp"
+        android:elevation="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📻"
+            android:textSize="28sp"
+            android:layout_marginEnd="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_title_first"
+            android:textColor="@color/accent"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_title_second"
+            android:textColor="@color/text_secondary"
+            android:textSize="22sp"
+            android:textStyle="normal" />
+
+        <View android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1"/>
+
+        <EditText
+            android:id="@+id/et_search_station"
+            android:layout_width="240dp"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_search_box"
+            android:hint="Search station..."
+            android:textColorHint="@color/text_secondary"
+            android:textColor="@color/text_primary"
+            android:paddingHorizontal="16dp"
+            android:textSize="14sp"/>
+
+    </LinearLayout>
+
+    <!-- ===== MAIN BODY ===== -->
+    <LinearLayout
+        android:id="@+id/main_body"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        app:layout_constraintBottom_toTopOf="@id/player_bar">
+
+        <!-- Sidebar: Countries -->
+        <LinearLayout
+            android:layout_width="260dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/sidebar_bg"
+            android:paddingTop="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="COUNTRIES"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp"
+                android:letterSpacing="0.15"
+                android:paddingHorizontal="20dp"
+                android:paddingBottom="10dp"/>
+
+            <ProgressBar
+                android:id="@+id/progress_countries"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:indeterminateTint="@color/accent"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_countries"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical"/>
+
+        </LinearLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/glass_border"/>
+
+        <!-- Station Grid -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Select a Country"
+                android:textColor="@color/text_primary"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:paddingBottom="12dp"/>
+
+            <ProgressBar
+                android:id="@+id/progress_stations"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:layout_marginTop="16dp"
+                android:indeterminateTint="@color/accent"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_stations"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="12dp"
+                android:scrollbars="vertical"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- ===== PLAYER BAR ===== -->
+    <LinearLayout
+        android:id="@+id/player_bar"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:background="@color/player_bg"
+        android:elevation="12dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- Station Logo Placeholder -->
+        <LinearLayout
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="@drawable/bg_logo_box"
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📻"
+                android:textSize="24sp"/>
+        </LinearLayout>
+
+        <!-- Station Info -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_now_playing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No station selected"
+                android:textColor="@color/text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:maxLines="1"
+                android:ellipsize="end"/>
+
+            <TextView
+                android:id="@+id/tv_now_station"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp"
+                android:maxLines="1"
+                android:ellipsize="end"/>
+        </LinearLayout>
+
+        <!-- Play/Pause Button -->
+        <Button
+            android:id="@+id/btn_play_pause"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/bg_play_button"
+            android:text="▶"
+            android:textColor="#000000"
+            android:textSize="22sp"/>
+
+        <!-- Volume -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginStart="24dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔊"
+                android:textSize="20sp"
+                android:layout_marginEnd="10dp"/>
+
+            <SeekBar
+                android:id="@+id/seek_volume"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:max="100"
+                android:progress="70"
+                android:progressTint="@color/accent"
+                android:thumbTint="@color/accent"/>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
